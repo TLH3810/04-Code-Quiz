@@ -2,34 +2,35 @@
 <html lang="en">
     <Head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+        <meta name="viewport" content="width=device-width">
         <link href="assets/css/style.css" rel="stylesheet">
         <Title>Code Quiz Javascript Fundamentals</Title> 
     </Head>
        
     <Body>
         <Header> 
-            <h1 class="page-title"> Code Quiz </h1>
-            <div class="timer"><span id='timer'></span></div>
+            <h1 class="page-title"> Code Quiz </h1>      
         </Header>
+        <div class="timer"><span id='timer'></span></div>
+        <div >Time: <span id="time">0</span></div>
         <div id="instructions">
             <p>Answer the quesitons as quickly as you can! Watch out, if you get one wrone you loose time!</p>
         </div>
-        <button id ="highscores">View Highscores</div>
-        <div >Time: <span id="time">0</span></div>
-
-        <div class="question-box">
+       <div><button id ="highscores">View Highscores</div>
+        
+        <div id = "content" id = "bold"></div>
+ <!--        <div class="question-box">
             <div id="question-container" class="hide"></div>
             <div id="question">Question</div>
             <div id="answerBtn" class="ansBtnGrd"></div>
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 2</button>
-            <button class="btn">Answer 3</button>
-            <button class="btn">Answer 4</button>
-            <p id="result"></p>
+            <button class="button">Answer 1</button>
+            <button class="button">Answer 2</button>
+            <button class="button">Answer 3</button>
+            <button class="button">Answer 4</button>
+            <p id="result"></p> -->
         </div>
         <div id="begin">
-            <button id="startBtn">Start</button>
+            <button class = "button" id="button">Start</button>
         </div>
         <div>
             <div class= "hide" id="game-over">
@@ -38,7 +39,8 @@
                 <p>Enter Initals:<input type="text" id="initals" max="5"></p>
             </div>
         </div>
+      <script src="./assets/js/script.js"></script>
     </Body>
-    <script>src ="/assets/js/script.js"</script>
+    
  
 </html>
