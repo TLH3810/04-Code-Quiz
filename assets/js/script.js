@@ -26,13 +26,15 @@ let submit = document.querySelector("#submit");
 
 //button
 let button = document.querySelector(".button");
-let submit = document.createElement("button");
+let submitBtn = document.querySelector("#submitBtn");
 let back = document.createElement("button");
 let clear = document.createElement("button");
 //let startButton = document.querySelector("#startBtn");
 let input = document.createElement("input");
 let scores = document.querySelector("#score");
 let highScoresList = [];
+let initals = document.querySelector("#initals")
+let finishTime = 0
 
 
 let questions = [
@@ -153,15 +155,14 @@ function checkAnswer(event){
 }
 
 function finished() {
-    let finishTime = timeLeft;
+    finishTime = timeLeft;
     content.innerHTML = "";
     scores.innerHTML = "Your final score is " + finishTime + ".";
     content.appendChild(score);
 
     
-    submit.classList.add("submit");
-    submit.innerHTML = "Submit";
-    div.appendChild(submit);
+    submitBtn.innerHTML = "Submit";
+    div.appendChild(submitBtn);
 
    /* 
     div.innerHTML = "";
@@ -173,12 +174,15 @@ function finished() {
 
     div.appendChild(input);
 
-    submit.classList.add("submit");
-    submit.innerHTML = "Submit";
-    div.appendChild(submit);
-
     content.appendChild(div); */
 }
+submitBtn.addEventListener("click", function(event){
+    var playerTotal = "name:" + initals.value + " score:" + finishTime;
+    console.log(playerTotal);
+    highScoresList.push(playerTotal);
+
+});
+
 //funciton for highscores
 function highScores() {
     header.remove();
@@ -196,10 +200,11 @@ function highScores() {
     let intro = document.createElement("h1");
     intro.innerHTML = "Highscores";
     content.appendChild(intro);
-
-    for (j in scores) {
+    console.log(highScoresList);
+    for (var j = 0; j <highScoresList.length; j++) {
         let hs = document.createElement("p");
-        hs.innerHTML = scores[j][0] + " - " + scores[j][1];
+        console.log(highScoresList[j])
+        hs.innerHTML = highScoresList[j];
         content.appendChild(hs);
     }
     content.appendChild(div);
