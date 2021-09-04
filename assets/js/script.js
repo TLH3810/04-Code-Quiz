@@ -33,8 +33,9 @@ let clear = document.createElement("button");
 let input = document.createElement("input");
 let scores = document.querySelector("#score");
 let highScoresList = [];
-let initals = document.querySelector("#initals")
-let finishTime = 0
+let initals = document.querySelector("#initals");
+let finishTime = 0;
+let gameOver = document.querySelector("#gameOver");
 
 
 let questions = [
@@ -46,7 +47,7 @@ let questions = [
 ];
 
 //Set imput box for usser name
-playerName = document.getElementById("#initals")
+playerName = document.getElementById("#initals");
 //Set timer id time
 let timer = document.querySelector("#time");
 let timeLeft = 100;
@@ -73,51 +74,6 @@ ansBtn.forEach(but =>{but.addEventListener("click", checkAnswer)});
 async function startQuiz() {
     console.log("hi")
     setQuestion(questionNum);
-
-    /*         for (i = 0; i < questions.length; i++) {
-                //console.log(typeof bold);
-                //console.log(bold);
-                //.innerHTML = "";
-                let question = document.createElement("h1");
-                question.innerHTML = questions[i][0];
-                content.appendChild(question);
-                content.innerHTML = "";
-    
-                for (j = 1; j <= questions.length - 1; j++) {
-                    let one = document.createElement("button");
-                    one.classList.add("button");
-                    one.innerHTML = questions[i][j];
-                    content.appendChild(one);
-                    await one.addEventListener("click", playerSelect(i, questions[i][j]));
-    
-                    function playerSelect(i, selection) {
-                        if (answers[i].includes(selection)) {
-                            correct++;
-                            result.innerHTML = "Correct!";
-                        }
-                        else {
-                            incorrect++;
-                            result.innerHTML = "Incorrect";
-                            if (timeLeft > 10) {
-                                timeLeft = timeLeft - 10;
-                            }
-                            else {
-                                timeLeft = 0;
-                            }
-                        }
-                    };
-    
-    
-    
-                    footer.innerHTML = "";
-                    footer.appendChild(result);
-                    body.appendChild(footer);
-    
-    
-    
-                }
-            } */
-
 }
 
 //set if statement for complted quiz with
@@ -158,24 +114,14 @@ function finished() {
     finishTime = timeLeft;
     content.innerHTML = "";
     scores.innerHTML = "Your final score is " + finishTime + ".";
-    content.appendChild(score);
+    content.appendChild(scores);
 
     
     submitBtn.innerHTML = "Submit";
-    div.appendChild(submitBtn);
-
-   /* 
-    div.innerHTML = "";
-
-    let initials = document.createElement("p");
-    initials.innerHTML = "Enter initials:";
-    highScoresList.push(initials + scores)
-    div.appendChild(initials);
-
-    div.appendChild(input);
-
-    content.appendChild(div); */
+    content.appendChild(submitBtn);
+    gameOver.classList.remove("hide")
 }
+
 submitBtn.addEventListener("click", function(event){
     var playerTotal = "name:" + initals.value + " score:" + finishTime;
     console.log(playerTotal);
@@ -240,15 +186,18 @@ clear.addEventListener("click", function () {
 //Button function that takes the user back to play again
 back.addEventListener("click", function () {
     body.appendChild(header);
-    timeLeft = 0;
+    timeLeft = 100;
     timer.innerHTML = "Time: " + timeLeft;
 
-    bold.remove();
+    questionNum = 0;
+    startQuiz(questionNum);
+
+   /* remove();
     let intro = document.createElement("h1");
     intro.innerHTML = "Coding Quiz Challenge";
     //bold.innerHTML = "";
-    bold.appendChild(intro);
-    body.appendChild(bold);
+    appendChild(intro);
+    appendChild(bold);
 
     content.remove();
     let directions = document.createElement("h2");
@@ -260,6 +209,6 @@ back.addEventListener("click", function () {
     div.appendChild(button);
     content.appendChild(div);
 
-    body.appendChild(content);
+    body.appendChild(content); */
 });
 //}

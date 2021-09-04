@@ -8,15 +8,15 @@
     </Head>
        
     <Body>
+        <div class="wrapper">
         <Header> 
             <h1 class="page-title"> Code Quiz </h1>      
         </Header>
         <div class="timer"><span id='timer'></span></div>
         <div >Time: <span id="time">0</span></div>
-        <div id="instructions">
-            <p>Answer the quesitons as quickly as you can! Watch out, if you get one wrone you loose time!</p>
-        </div>
-       <div><button id ="highscores">View Highscores</div>
+        <h2 id="instructions">
+            Answer the quesitons as quickly as you can! Watch out, if you get one wrong you loose time!
+        </h2>
         
         <div id = "content" id = "bold"></div>
         <div class="question-box">
@@ -29,16 +29,19 @@
             <button id="ans4Btn" value="4" class = "ansBtn">Answer 4</button>
             <p id="result"></p> -->
         </div>
-        <div id="begin">
+
+        <div>
             <button class = "button" id="button">Start</button>
         </div>
         <div>
-            <div class= "hide" id="game-over">
-                <h1>Game Over</h1>
+            <div><button id ="highscores">View Highscores</div>
+            <div class= "hide" id="gameOver">
+                <h3>Game Over</h3>
                 <p id='score'></p> <button id="submitBtn"></button>              
                 <p>Enter Initals:<input type="text" id="initals" max="5"></p>
             </div>
         </div>
+    </div>
       <script src="./assets/js/script.js"></script>
     </Body>
     
